@@ -1,0 +1,180 @@
+header{
+    background-color: white;
+    height: 70px;
+}
+body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: aqua;
+}
+#holder{
+    padding: 10px 8%;
+    display:flex ;
+    justify-content: space-between;
+}
+#holder .notifications{
+    display:flex;
+    width: fit-content;
+}
+.notifications i{
+    position: relative;
+    padding-right: 4px;
+    padding-top: 16px;
+    font-size: x-large;
+}
+.notifications i::after{
+    content: "";
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: red;
+    left: 10px;
+    top: 18px;
+    border: 2px solid white;
+}
+/*End Of Header*/
+section{
+    position: relative;
+    width: 100%;
+    height: 80%;
+}
+.Signup{
+    /* display: none; */
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    justify-content: space-between;
+    text-align: center;
+    left: 15%;
+    margin: 4% 0;
+    border-radius: 20px;
+    display: flex;
+}
+.Signup .signinside{
+    padding:12px;
+    width: 40%;
+    border-radius: 20px 0 0px 20px;
+    background-color: rgb(226, 39, 39);
+}
+.Signup .signinside .content{
+    color: white;
+    text-align: center;
+    margin-top: 45%;
+}
+.Signup .signinside .content p{margin-top: 16px;}
+.Signup .signinside .content button{
+    width: 180px;
+    height: 40px;
+    margin-top: 24px;
+    border:1px solid white;
+    border-radius: 20px;
+}
+.Signup .signinside .content button:hover{
+    border: black ;
+    background-color: black;
+    color: white;
+}
+.Signup .signupside{width: 60%; text-align: center; }
+.Signup .signupside .holder{ overflow: hidden; margin: 15%;}
+.Signup .signupside .holder .apis h1{
+    color: rgb(226, 39, 39);
+}
+.Signup .signupside .holder .apis .icons{
+    font-size:x-large ;
+    margin: 12px;
+}
+.Signup .signupside .holder .apis .icons i{
+    margin-right: 8px;
+    cursor: pointer;
+}
+.Signup .signupside .holder .inputs{
+    width: 100%;
+}
+.Signup .signupside .holder .inputs button{
+    width: 96%;
+    margin-top: 8px;
+    border: 1px solid rgb(226, 39, 39);
+    border-radius: 20px;
+    background-color: rgb(226, 39, 39);
+    color: white;
+    height: 40px;
+}
+.Signup .signupside .holder .inputs button:hover{
+    border: black;
+    background-color: black;
+    color: white;
+}
+/* Signup page */
+/* 
+
+/* */ */
+.login{
+    display: none;
+    background-color: white;
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    justify-content: space-between;
+    text-align: center;
+    left: 15%;
+    margin: 4% 0;
+    border-radius: 20px;
+    display: flex;
+}
+.login .signinside{
+    padding:12px;
+    width: 40%;
+    border-radius: 20px 0 0px 20px;
+    background-color: rgb(226, 39, 39);
+}
+.login .signinside .content{
+    color: white;
+    text-align: center;
+    margin-top: 45%;
+}
+.login .signinside .content p{margin-top: 16px;}
+.login .signinside .content button{
+    width: 180px;
+    height: 40px;
+    margin-top: 24px;
+    border:1px solid white;
+    border-radius: 20px;
+}
+.login .signinside .content button:hover{
+    border: black ;
+    background-color: black;
+    color: white;
+}
+.login .signupside{width: 60%; text-align: center; }
+.login .signupside .holder{ overflow: hidden; margin: 15%;}
+.login .signupside .holder .apis h1{
+    color: rgb(226, 39, 39);
+}
+.login .signupside .holder .apis .icons{
+    font-size:x-large ;
+    margin: 12px;
+}
+.login .signupside .holder .apis .icons i{
+    margin-right: 8px;
+    cursor: pointer;
+}
+.login .signupside .holder .inputs form{
+    width: 100%;
+}
+.login .signupside .holder .inputs button{
+    width: 96%;
+    margin-top: 8px;
+    border: 1px solid rgb(226, 39, 39);
+    border-radius: 20px;
+    background-color: rgb(226, 39, 39);
+    color: white;
+    height: 40px;
+}
+.login .signupside .holder .inputs button:hover{
+    border: black;
+    background-color: black;
+    color: white;
+}

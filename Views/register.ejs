@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <!--Link Font Awesome Cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Link bootSstarb-->
+    <link rel="stylesheet" href="./public/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/style.css">
+    <!-- <link rel="stylesheet" href="./public/cs.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class=" w-screen h-screen overflow-x-hidden">
+    <!--Header-->
+    <header class="shadow-lg h-[70px]  bg-white">
+        <div id="holder" class="py-[15px] px-[20px] md:px-[50px]  lg:py-[10px] lg:px-[8%]  flex justify-between">
+            <img src="/images/T&D_New_Logo.png" width="150px" height="50px"> 
+            <div class="notifications flex w-fit ">
+                <i class="fa-regular fa-bell relative  pr-1 pt-2.5  text-2xl after:w-3 after:h-3 after:rounded-full after:bg-[#d90700] after:absolute after:left-2.5 after:top-3.5 after:border-2 after:border-white"></i>
+                <img src="/images/person-outline-icon-png-person-outline-icon-png-person-17.png" width="50px" height="50px" >
+            </div>
+        </div>
+    </header>
+    <!--End Of Header-->
+    <section class=" relative flex items-center w-screen h-screen ">
+        <!--SignUp Part-->
+        <div id="signup" class="Signup bg-white absolute mt-[30px] items-center justify-center text-center w-screen h-fit overflow-hidden sm:w-[70%] sm:h-[500px] sm:left-[15%]  sm:my-[4%] shadow-2xl rounded-xl sm:flex ">
+            <div class="signinside sm:p-3 flex justify-center items-center h-[180px] sm:h-[500px] w-screen pt-[15px]  sm:w-[40%] sm:rounded-l-xl  bg-[#d90700]">
+                <div class="content text-white text-center items-center  flex flex-col  ">
+                    <h1 class=" text-xl font-bold sm:text-xl md:text-3xl">Welcome Back!</h1> 
+                    <p class="mt-4 text-sm sm:text-sm md:text-lg">To Keep Connect with us please login with your personal info</p>
+                    <a href="/auth/login"><button id="signinbtn"  class=" w-[100px] sm:w-[150px] md:w-[180px] mt-6 border-[1px] rounded-3xl border-solid hover:border-black h-[30px] sm:h-[40px] hover:bg-black hover:text-white">SIGN IN</button></a>
+                </div>
+            </div>
+            <div class="signupside sm:w-[70%] mt-[-3%] text-center">
+                <div class="holder overflow-hidden mb-0 m-[10%]">
+                    <div class="apis">
+                        <h1 class="text-[#d90700] text-[32px] sm-text-[33px] md:text-[40px] font-bold">Create Account</h1>
+                        <div class="icons text-2xl my-3">
+                            <a href="/auth/facebook"><i class="fa-brands fa-facebook  mr-2 cursor-pointer"></i></a>
+                            <a href="/auth/google"><i class="fa-brands fa-google mr-2 cursor-pointer"></i></a>
+                            <a href="/auth/linkedin"><i class="fa-brands fa-linkedin-in cursor-pointer"></i></a>
+                        </div>
+                        <p>Or use your email for registration</p>
+                    </div>
+                    
+                    <div class="inputs">
+                        <form action="/auth/register" id="signupform" method="post" class="w-[100%]">
+                            <div class="">
+                                <div class="mx-2 mt-1 ">
+                                  <input type="text" name="name" id="signup_name" class="form-control w-full border-[2px] h-[40px] rounded-lg p-2 border-gray-350" placeholder="Name" aria-label="First name" >
+                                  <% for(let i=0;i<name_errors.length;i++) { %>  
+                                  <p id="Name_error" class="none text-red-500 text-sm font-semibold"><%= name_errors[i] %></p>
+                                  <% }%>
+                                </div>  
+                                
+                                <div class="mx-2 mt-1">
+                                    <input type="email" name="email" id="signup_email" class="form-control w-full border-[2px] h-[40px] rounded-lg p-2 border-gray-350" placeholder="Email" aria-label="Email">
+                                    <% for(let i=0;i<email_errors.length;i++) { %>
+                                    <p id="signup_emailerror" class="none text-red-500 text-sm font-semibold"><%= email_errors[i] %></p>
+                                    <% } %>
+                                </div>  
+                                  <div class="mx-2 mt-1 ">
+                                    <input  type="password" name="password" id="signup_pass" class="form-control w-full border-[2px] h-[40px] rounded-lg p-2 border-gray-350" placeholder="Password" aria-label="password">
+                                    <% for(let i=0;i<pass_errors.length;i++) { %>
+                                    <p id="signup_passerror" class="none text-red-500 text-sm font-semibold"><%= pass_errors[i] %></p>
+                                    <% } %>
+                                  </div>  
+                              </div>
+                              <button id="" class="w-full mb-5  mt-2 border-[1px] rounded-lg bg-[#d90700] text-white border-solid hover:border-black h-[40px] hover:bg-black hover:text-white">SIGN UP</button>
+                              <p id="signup_passerror" class="none mt-2 text-red-600 text-md font-semibold"><%= message %></p>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </section>
+    <footer class="bg-[#333333] w-full h-[150px]  py-11  flex justify-center text-center" >
+        <div class="text-white py-[15px]">
+            <p  class="mb-[-5px]">Copyright @ <span id="year"></span></p>
+            <p class="">Developed By Ahmednasr</p>
+        </div>
+    </footer>
+    <script>
+        
+        
+
+       let signupform=document.getElementById("signupform")
+       let signup_pass=document.getElementById("signup_pass");let signup_passerror=document.getElementById("signup_passerror");
+       let signup_email=document.getElementById("signup_email");let signup_emailerror =document.getElementById("signup_emailerror")
+       let signup_name=document.getElementById("signup_name");let Name_error =document.getElementById("Name_error");
+       
+       
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Link Font Awesome Cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./public/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-screen relative overflow-hidden h-full">
+    <header class=" h-[70px] bg-white shadow-lg w-screen">
+        <div class="  py-[10px]  px-[8%]  flex justify-between">
+            <img src="images/T&D_New_Logo.png" width="150px" height="50px"> 
+            <div class="notifications flex w-fit ">
+                <i class="fa-regular fa-bell relative  pr-1 pt-2.5  text-2xl after:w-3 after:h-3 after:rounded-full after:bg-[#d90700] after:absolute after:left-2.5 after:top-3.5 after:border-2 after:border-white"></i>
+                <img src="images/Profile-Avatar-PNG.png.crdownload" width="50px" height="20px" >
+            </div>
+        </div>
+    </header>
+    <section class=" w-screen h-screen relative flex items-center justify-center">
+        <a href="/admin_dashboard" class="flex text-center left-[8%] top-2 sm:top-10 px-1 bg-gray-100  shadow-lg   rounded-lg w-[120px] cursor-pointer absolute z-[999]">
+            <i class="sm:text-2xl text-lg pr-2 fa-solid fa-arrow-left"></i>
+            <span class="pt-1">Dashboard</span>
+        </a>
+        <div class="container  w-[90%] h-fit shadow-2xl bg-white absolute top-[4.5%]  rounded-xl ">
+            <h1 class="font-semibold text-2xl text-center pt-7">Add New Employee</h1>
+            <div class="holder mt-[3%] h-fit flex gap-5">
+                
+                <form action="/AddEmployee" method="POST" class="w-[80%] mx-auto flex gap-5 flex-col h-[100%]">
+                    <div class="holder w-[100%] flex sm:gap-10 gap-5 flex-col sm:flex-row justify-between">
+                        <div class="fname flex sm:flex-col ">
+                          <input name="firstname" required type="text" class="form-control w-full pr-6 border-gray-300 border-[1px] focus:border-blue-300 p-2 rounded-lg" placeholder="First name" aria-label="First name">
+                        </div>
+                        <div class="sname flex flex-col">
+                          <input type="text" required name="secondname" class="form-control w-full  pr-6 border-gray-300 border-[1px] focus:border-blue-300 p-2 rounded-lg" placeholder="Last name" aria-label="Last name">
+                        </div>
+                    </div>
+                      <!--  -->
+                    <input type="email" required name="email" placeholder="Email" class="form-control pl-2 border-gray-300 border-[1px] w-[100%] focus:border-blue-300 p-2 rounded-lg" id="inputEmail4">
+                    
+                    <select name="title" class="form-select  w-[100%] p-2 border-[1px] border-gray-300 rounded-lg" aria-label="Default select example">
+                        <option  selected>Select Job Title</option>
+                        <option value="Software Eng">SoftWare Eng</option>
+                        <option value="Human Resourse">Human Resource </option>
+                        <option value="Finance">Finance</option>
+                    </select> 
+                    
+                    <select name="status" class="form-select  w-[100%] p-2 border-[1px] border-gray-300 rounded-lg" aria-label="Default select example">
+                        <option selected>Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Not Active">Not Active</option>
+                        <option value="Pending">Pending</option>
+                    </select> 
+                    
+                    <button class="btn w-[100%] mt-2 mb-5 border-[1px] rounded-lg bg-[#d90700] text-white border-solid hover:border-black h-[40px] hover:bg-black hover:text-white">Save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-[#333333] w-full h-[150px] py-10  absolute bottom-0 flex justify-center text-center" >
+        <div class="text-white py-4">
+            <p class="">Copyright @ <span id="year"></span></p>
+            <p class="">Developed By Ahmednasr</p>
+        </div>
+    </footer>
+    
+    <script>
+        let year= document.getElementById("year");
+        let date=new Date();
+        year.innerHTML=date.getFullYear();
+    </script>
+</body>
+</html>

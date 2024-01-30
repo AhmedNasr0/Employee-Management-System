@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./public/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex">
+    <!--Start Side Bar-->
+    <aside id="aside" class="z-[999]">
+        <div class="container relative flex h-full">
+            <div id="Sidebar" class="bg-[#343a40]  text-white z-50 w-screen sm:w-[200px] h-full relative ">
+                <div class="shape text-white z-[100] right-[-10px] top-[355px] absolute ">
+                    <button id="closebtn" class="shape  w-[60px] h-[60px] bg-[#343a40]  rounded-full  right-[-10px] sm:left-[165px] z-10  flex  justify-center">
+                       <i id="rowleft" class="fa-solid fa-arrow-left  text-4xl mt-[9px]"></i>
+                    </button>
+                </div>
+                <ul class="list-none pt-[200px] flex flex-col  text-start " >
+                    <li class="  mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-id-card"></i>
+                            <span>Employees</span>
+                        </a>
+                    </li>
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-users"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a>
+                            <i class="fa-solid fa-gears"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="mb-6 pl-[20%] py-1 rounded-xl hover:bg-slate-400 hover:cursor-pointer">
+                        <a href="/auth/login">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       
+    </aside>
+    <!--End Of Side Bar-->
+    <!-- open button -->
+    <button id="openbtn" class="shape absolute w-[60px] h-[60px] bg-[#343a40] flex top-[350px] text-white left-[-30px]   rounded-full pl-3   justify-center">
+        <i id="rowright" class="fa-solid fa-arrow-right   text-4xl mt-[9px]"></i>
+    </button>
+    <!--Start Page-->
+    <div id="page" class="page w-screen min-h-screen flex flex-col  bg-slate-200">
+        <!-- Header Of Page -->
+        <header class="px-3 sm:px-12 overflow-hidden shadow-lg h-[80px] bg-white">
+            <div class="py-5 items-center sm:py-4 flex justify-between">
+                <div class="logo flex w-[120px] h-[50px]">
+                    <img src="images/T&D_New_Logo.png" class="mr-7 w-full h-full" >
+                </div>
+                
+                <div class="notifications flex justify-center items-center">
+                    <div class="welcome  text-gray-500 text-xs sm:text-sm mr-2 sm:mr-9">Welcome , <%=name %></div>
+                    <i class="fa-regular fa-bell text-sm sm:text-2xl pr-1 pt-2"></i>
+                    <img src="images/Profile-Avatar-PNG.png.crdownload" class="mt-1 w-[35px] h-[35px] sm:w-[50px] sm:h-[50px]">
+                </div>
+            </div>
+        </header>
+        <!--End Of header-->
+        <main class="w-full">
+            <section class="py-6 px-[10px] h-full mb-[40px] min-h-screen">
+                <div class="title&search flex justify-between mb-7 items-center">
+                    <h1 class=" text-2xl font-bold ml-3 ">Dashboard</h1>
+                    <div class="search flex items-center mr-3 mt-2">
+                        <i id="search-icon" class=" fa-solid fa-magnifying-glass cursor-pointer w-[30px] pl-1.5 mb-1 shadow-2xl h-[30px] bg-white rounded-full text-lg"></i>
+                    </div>
+                </div>
+                <div id="popup" class="popup hidden  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-[1px] border-black rounded-lg z-[1000] bg-white h-fit w-3/4">
+                    <div class="header flex justify-between items-center p-2">
+                        <div class="title text-xl font-bold">Search Box</div>
+                        <div id="closePopup" class="closePopup cursor-pointer text-xl font-bold">X</div>
+                    </div>
+                    <form method="POST" action="/user_dashboard" class="sm:flex w-full py-5 px-2 sm:items-center">
+                        <input id="search-input" type="text" name="search" placeholder="Search.."  class="w-1/2 sm:w-3/4 h-[40px] outline-none shadow rounded-3xl mt-[5px] pl-3 border-[2px] bg-gray-200">
+                        <button type="submit"><a class="sm:ml-2 mt-[9px] bg-gray-200 border-[1px] border-gray-300 text-gray-500 rounded-md shadow-xl h-fit p-1">Search</a></input>                  
+                    </form>
+                </div>
+                <div id="overlay" class="hidden right-0 left-0 top-0 bottom-0 bg-black opacity-50"></div>
+                <div id="boxs" class="grid grid-cols-1 sm:grid-cols-2  gap-[10px]">
+                    <div class="Users bg-white rounded-xl shadow-md h-[100px] w-full sm:w-full flex  p-6 ">
+                        <div class="icon"><i class="fa-solid fa-users text-3xl text-white  mr-3 bg-pink-500 rounded-full p-3"></i></div>
+                        <div class="desc mt-1">
+                            <p class="text-xl font-bold mb-[-3px]"><%= totalemployees %></p>
+                            <p class="text-base  text-slate-400">Total Employees</p>
+                        </div>
+                    </div>
+                    <div class="orders bg-white rounded-xl shadow-md h-[100px] w-full flex p-6">
+                        <div class="icon"><i class="fa-solid fa-user-check text-3xl text-white  mr-3 bg-green-400 rounded-full p-3"></i></div>
+                        <div class="desc mt-1">
+                            <p class="text-xl font-bold mb-[-3px]"><%=active%></p>
+                            <p class="text-base  text-slate-400">Total Active</p>
+                        </div>
+                    </div>
+                    <div class="products bg-white rounded-xl  shadow-md h-[100px] w-full flex p-6">
+                        <div class="icon"><i class="fa-solid fa-user-xmark text-3xl text-white  mr-3 bg-red-500 rounded-full p-3"></i></div>
+                        <div class="desc mt-1">
+                            <p class="text-xl font-bold mb-[-3px]"><%=notactive%></p>
+                            <p class="text-base  text-slate-400">Not Active</p>
+                        </div>
+                    </div>
+                    <div class="income bg-white rounded-xl  shadow-md h-[100px] w-full flex p-6">
+                        <div class="icon"><i class="fa-solid fa-user-clock text-3xl text-white  mr-3 bg-blue-500 rounded-full p-3"></i></div>
+                        <div class="desc mt-1">
+                            <p class="text-xl font-bold mb-[-3px]"><%=pending%></p>
+                            <p class="text-base  text-slate-400">Pending</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Start Table-->
+                <div class="overflow-auto">
+                    <div id="table" class="table static min-w-[500px] w-full  mt-[5%]">
+                        <!--Add Employee Btn-->
+                        <table class=" mx-1 bg-white w-full  rounded-xl ">
+                            <thead class="h-12 sticky top-0 ">
+                                <tr class="border-b-[1px] ">
+                                    <td class="font-bold pl-6">Name</td>
+                                    <td class="font-bold">Title</td>
+                                    <td class="font-bold">Status</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <% for(var i =0;i<users.length;i++){ %>
+                                <tr class="border-b-[1px] ">
+                                    <td class="py-3">
+                                        <div class="person flex pl-6">
+                                            <img src="images/Profile-Avatar-PNG.png.crdownload" width="50px" height="50px" class="mr-3">
+                                            <div class="name ">
+                                                <p class="font-semibold"><%= users[i].firstname +' '+ users[i].secondname %></p>
+                                                <p id="mail" class="text-gray-400"><%= users[i].email %></p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3">
+                                        <div class="jop">
+                                            <p class="font-semibold"><%= users[i].jobtitle %></p>
+                                            <p class="text-gray-400"><%=  %></p>
+                                        </div>
+                                    </td>
+                                    <td class="py-3">
+                                        <span class="p-1 text-sm bg-green-200 text-green-600 rounded-full text"><%= users[i].status %></span> 
+                                    </td>
+                                
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="btn-toolbar absolute  right-[30px] mt-3" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group flex flex-row" role="group" aria-label="First group">
+                    <a id="prevpage" type="button" class="btn bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex   w-[35px] z-10 rounded-l-lg hover:bg-white hover:text-black relative"><i class="fa-solid absolute top-2.5 right-2.5 fa-arrow-left"></i></a>
+                    <a id="page1"  class="btn bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex  w-[40px] z-10  hover:bg-white hover:text-black ">1</a>
+                    <a id="page2"  type="button" class="btn bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex  w-[40px]  hover:bg-white hover:text-black">2</a>
+                    <a id="page3"  type="button" class="btn bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex  w-[40px]   hover:bg-white hover:text-black">3</a>
+                    <a id="page4" type="button" class="btn bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex  w-[40px]  z-10  hover:bg-white hover:text-black">4</a>
+                    <a id="nextpage" type="button" class="btn  bg-[#333333] text-white h-[35px] pt-[3px] pl-3.5 flex   w-[35px] z-10 rounded-r-lg hover:bg-white hover:text-black relative"><i class="fa-solid absolute top-2.5 right-2.5 fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-[#333333] w-full h-[150px] py-10 flex justify-center text-center" >
+            <div class="text-white py-4">
+                <p class="">Copyright @ <span id="year"></span></p>
+                <p class="">Developed By Ahmednasr</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    var closebtn=document.getElementById("closebtn");
+    var Sidebar=document.getElementById("Sidebar");
+    let aside=document.getElementById("aside");
+    var openbtn=document.getElementById("openbtn");
+    var page=document.getElementById("page");
+    var boxs=document.getElementById("boxs");
+    var table=document.getElementById("table");
+    let year=document.getElementById("year");
+    let searchicon=document.getElementById("search-icon")
+    let closePopup=document.getElementById("closePopup")
+    let overlay=document.getElementById("overlay");
+    let popup=document.getElementById("popup")
+    let date = new Date();
+    year.innerHTML=date.getFullYear();
+    closebtn.onclick=function(){
+        Sidebar.style.display="none";
+        closebtn.style.display="none";
+        openbtn.style.display="flex";
+        boxs.style.marginLeft="5px";
+        table.style.marginLeft="5px";
+    }
+    openbtn.onclick=function(){
+        Sidebar.style.display="block";
+        closebtn.style.display="flex";
+        openbtn.style.display="none";
+        boxs.style.marginLeft="0px";
+        table.style.marginLeft="0px";
+    }
+    searchicon.onclick=()=>{
+        overlay.style.display="block"
+        popup.style.display="block"
+        overlay.style.position="fixed";
+        popup.style.position="fixed";
+    }
+    closePopup.onclick=()=>{
+        overlay.style.display="none"
+        popup.style.display="none"
+    }
+    const prev_page=document.getElementById('prevpage');
+    const btn_one=document.getElementById("page1");
+    const btn_two=document.getElementById('page2');
+    const btn_three=document.getElementById('page3');
+    const btn_four=document.getElementById('page4');
+    const next_page=document.getElementById('nextpage');
+    //
+    const urlparams=new URLSearchParams(window.location.search);
+    var page=urlparams.get('page')||1;
+    prev_page.addEventListener('click',()=>{
+        if(!page){
+            urlparams.append('page',1)
+        }
+        else{
+        if(page==1||page==0){
+            page=1
+        }else{
+            page=page-1;
+        }
+        urlparams.set('page',page);
+        history.pushState(null,"",window.location.pathname,"?"+urlparams.toString())
+        prev_page.href=window.location.pathname+"?"+urlparams.toString();
+    }})
+    btn_one.addEventListener('click',()=>{
+        var page=1
+        urlparams.set('page',page)
+        history.pushState(null,"",window.location.pathname+"?"+urlparams.toString())
+        btn_one.href=window.location.pathname+"?"+urlparams.toString();
+    })
+    btn_two.addEventListener('click',()=>{
+        var page=2
+        urlparams.set('page',page)
+        history.pushState(null,"",window.location.pathname+"?"+urlparams.toString())
+        btn_two.href=window.location.pathname+"?"+urlparams.toString();
+    })
+    btn_three.addEventListener('click',()=>{
+        page=3
+        urlparams.set('page',page)
+        history.pushState(null,"",window.location.pathname+"?"+urlparams.toString())
+        btn_three.href=window.location.pathname+"?"+urlparams.toString();
+    })
+    btn_four.addEventListener('click',()=>{
+        page=4
+        urlparams.set('page',page)
+        history.pushState(null,"",window.location.pathname+"?"+urlparams.toString())
+        btn_four.href=window.location.pathname+"?"+urlparams.toString();
+    })
+    next_page.addEventListener('click',()=>{
+        page++;
+        urlparams.set('page',page)
+        history.pushState(null,"",window.location.pathname+"?"+urlparams.toString())
+        next_page.href=window.location.pathname+"?"+urlparams.toString();
+    })
+
+</script>
+</html>
